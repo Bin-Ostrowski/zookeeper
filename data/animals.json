@@ -163,6 +163,17 @@
         "hungry"
       ],
       "id": "16"
+    },
+    {
+      "name": "Robin",
+      "species": "Human",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "anxious",
+        "loving",
+        "goofy"
+      ],
+      "id": "17"
     }
   ]
 }

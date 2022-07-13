@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 //parse incoming JSON data
 app.use(express.json());
 
+app.use(express.static('public'));
+
 //function behind query search
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
@@ -136,6 +138,26 @@ app.post('/api/animals', (req, res) => {
     //req.body is where our incoming content will be
     res.json(animal);
   };
+});
+
+//set up route to index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+//set up route to animals.html
+app.get('/animals', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+//set up route to zookeepers.html
+app.get('/zookeepers', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+//catch requests for routes that don't exhist 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 //creates server
